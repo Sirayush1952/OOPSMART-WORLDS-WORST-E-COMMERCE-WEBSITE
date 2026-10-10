@@ -2633,6 +2633,179 @@
     .login-submit-btn:active {
       transform: translateY(0);
     }
+
+    /* =========================================================
+       CUSTOM SITE NOTIFICATION MODAL (Oops!Mart Design System)
+       ========================================================= */
+    .site-notification-scrim {
+      position: fixed;
+      inset: 0;
+      background: rgba(23, 36, 61, 0.55);
+      backdrop-filter: blur(5px);
+      -webkit-backdrop-filter: blur(5px);
+      z-index: 10001;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+      box-sizing: border-box;
+    }
+
+    .site-notification-scrim.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .site-notification-card {
+      position: relative;
+      background: var(--paper, #ffffff);
+      border: 1.5px solid var(--line, #eadfcb);
+      border-radius: 20px;
+      padding: 24px 26px 22px 26px;
+      width: 100%;
+      max-width: 460px;
+      box-shadow: 0 24px 50px -12px rgba(23, 36, 61, 0.32), 0 4px 16px rgba(23, 36, 61, 0.08);
+      font-family: var(--font-body, "Plus Jakarta Sans", sans-serif);
+      color: var(--ink, #1b1b22);
+      transform: scale(0.93) translateY(12px);
+      transition: transform 0.24s cubic-bezier(0.16, 1, 0.3, 1);
+      box-sizing: border-box;
+    }
+
+    .site-notification-scrim.active .site-notification-card {
+      transform: scale(1) translateY(0);
+    }
+
+    .site-notification-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 16px;
+    }
+
+    .site-notification-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 10px;
+      background: var(--amber-soft, #fff0c2);
+      border: 1px solid rgba(255, 214, 90, 0.6);
+      border-radius: 6px;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.05em;
+      color: var(--navy, #17243d);
+      text-transform: uppercase;
+    }
+
+    .site-notification-close {
+      background: transparent;
+      border: none;
+      font-size: 18px;
+      color: var(--grey, #636b7e);
+      cursor: pointer;
+      border-radius: 8px;
+      width: 32px;
+      height: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.15s, color 0.15s;
+      padding: 0;
+      margin: 0;
+    }
+
+    .site-notification-close:hover {
+      background: var(--cream-deep, #f7ead6);
+      color: var(--navy, #17243d);
+    }
+
+    .site-notification-body {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      margin-bottom: 22px;
+    }
+
+    .site-notification-icon-box {
+      width: 48px;
+      height: 48px;
+      min-width: 48px;
+      border-radius: 14px;
+      background: var(--cream, #fff8ed);
+      border: 1.5px solid var(--line, #eadfcb);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      user-select: none;
+    }
+
+    .site-notification-content-wrap {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .site-notification-title {
+      font-family: var(--font-display, "Fraunces", Georgia, serif);
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--navy, #17243d);
+      margin: 0 0 6px 0;
+      line-height: 1.25;
+    }
+
+    .site-notification-message {
+      font-size: 14px;
+      line-height: 1.55;
+      color: var(--ink, #1b1b22);
+      word-break: break-word;
+    }
+
+    .site-notification-message p {
+      margin: 0 0 8px 0;
+    }
+
+    .site-notification-message p:last-child {
+      margin-bottom: 0;
+    }
+
+    .site-notification-footer {
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    .site-notification-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--coral, #ff6248);
+      color: var(--navy, #17243d);
+      font-family: var(--font-body, "Plus Jakarta Sans", sans-serif);
+      font-weight: 800;
+      font-size: 14px;
+      letter-spacing: 0.02em;
+      padding: 10px 22px;
+      border-radius: 10px;
+      border: 1.5px solid rgba(23, 36, 61, 0.15);
+      cursor: pointer;
+      box-shadow: 0 2px 6px rgba(255, 98, 72, 0.25);
+      transition: background 0.15s, color 0.15s, transform 0.15s;
+    }
+
+    .site-notification-btn:hover {
+      background: var(--navy, #17243d);
+      color: var(--white, #ffffff);
+      border-color: var(--navy, #17243d);
+      transform: translateY(-1px);
+    }
+
+    .site-notification-btn:active {
+      transform: translateY(0);
+    }
   </style>
 </head>
 <body>
@@ -2830,7 +3003,7 @@
   </div>
 
   <!-- Bottom-Right Floating Demo Mode Button -->
-  <button type="button" id="btn-demo-chaos" class="demo-btn" style="background: linear-gradient(135deg, #ff2a85, #ffd000); box-shadow: 0 0 20px rgba(255, 42, 133, 0.6); cursor: pointer;" title="Instant test trigger for Level 21 Fullscreen Captive Loop">
+  <button type="button" id="btn-demo-chaos" class="demo-btn" style="background: linear-gradient(135deg, #ff2a85, #ffd000); box-shadow: 0 0 20px rgba(255, 42, 133, 0.6); cursor: pointer;" title="Instant test trigger for Level 21 Chaos Loop">
     ⚡ DEMO CHAOS (Lv. 21)
   </button>
 
@@ -3071,6 +3244,32 @@
     </div>
   </div>
 
+  <!-- =========================================================
+       OOPS!MART CUSTOM SITE NOTIFICATION MODAL
+       ========================================================= -->
+  <div id="site-notification-scrim" class="site-notification-scrim" style="display: none;" onclick="closeSiteNotification()">
+    <div class="site-notification-card" onclick="event.stopPropagation()">
+      <div class="site-notification-header">
+        <div class="site-notification-badge-wrap">
+          <span class="site-notification-badge">OOPS!MART NOTICE</span>
+        </div>
+        <button type="button" class="site-notification-close" onclick="closeSiteNotification()" title="Close notification">✕</button>
+      </div>
+      <div class="site-notification-body">
+        <div class="site-notification-icon-box" id="site-notification-icon-box">📢</div>
+        <div class="site-notification-content-wrap">
+          <h3 id="site-notification-title" class="site-notification-title">System Alert</h3>
+          <div id="site-notification-message" class="site-notification-message"></div>
+        </div>
+      </div>
+      <div class="site-notification-footer">
+        <button type="button" id="site-notification-ok-btn" class="site-notification-btn" onclick="closeSiteNotification()">
+          Understood
+        </button>
+      </div>
+    </div>
+  </div>
+
   <div id="screen-wash-overlay"></div>
 
   <!-- Audio Context Synthesizer Script -->
@@ -3200,6 +3399,121 @@
       const btn = document.querySelector(`.chip-btn[data-category="${targetCat}"]`);
       if (btn) btn.click();
     }
+
+    /* =========================================================
+       OOPS!MART CUSTOM SITE NOTIFICATION SYSTEM
+       ========================================================= */
+    function showSiteNotification(rawMessage) {
+      const str = String(rawMessage != null ? rawMessage : "");
+      const scrim = document.getElementById("site-notification-scrim");
+      const iconEl = document.getElementById("site-notification-icon-box");
+      const titleEl = document.getElementById("site-notification-title");
+      const msgEl = document.getElementById("site-notification-message");
+      const okBtn = document.getElementById("site-notification-ok-btn");
+      if (!scrim || !titleEl || !msgEl) return;
+
+      if (window.AudioEngine && typeof AudioEngine.blip === "function") {
+        try { AudioEngine.blip(540, 0.1); } catch (e) {}
+      }
+
+      let content = str.trim();
+      let icon = "📢";
+
+      // Match leading emoji or icon
+      const emojiMatch = content.match(/^([\p{Extended_Pictographic}\u2600-\u27bf\uD83C-\uDBFF\uDC00-\uDFFF\u200d\ufe0f]+)\s*/u);
+      if (emojiMatch) {
+        icon = emojiMatch[1];
+        content = content.slice(emojiMatch[0].length).trim();
+      }
+
+      let title = "Oops!Mart Notice";
+      let body = "";
+
+      if (content.includes("\n\n")) {
+        const parts = content.split(/\n\n+/);
+        title = parts[0].replace(/[:!]+$/, "").trim();
+        body = parts.slice(1).join("\n\n").trim();
+      } else if (content.includes(":\n")) {
+        const parts = content.split(/:\n+/);
+        title = parts[0].trim();
+        body = parts.slice(1).join("\n").trim();
+      } else if (content.includes(": ") && content.indexOf(": ") < 40) {
+        const colonIdx = content.indexOf(": ");
+        title = content.slice(0, colonIdx).trim();
+        body = content.slice(colonIdx + 2).trim();
+      } else if (content.includes("! ") && content.indexOf("! ") < 30) {
+        const bangIdx = content.indexOf("! ");
+        title = content.slice(0, bangIdx + 1).trim();
+        body = content.slice(bangIdx + 2).trim();
+      } else if (content.includes("\n")) {
+        const parts = content.split(/\n+/);
+        title = parts[0].trim();
+        body = parts.slice(1).join("\n").trim();
+      } else {
+        if (content.length <= 40 && !content.includes(".")) {
+          title = content;
+          body = "";
+        } else {
+          title = "Oops!Mart Notice";
+          body = content;
+        }
+      }
+
+      if (title.toUpperCase().includes("SECURITY") || title.toUpperCase().includes("AUTHENTICATION") || title.toUpperCase().includes("WARNING")) {
+        if (icon === "📢") icon = "⚠️";
+      }
+
+      if (iconEl) iconEl.textContent = icon;
+      titleEl.textContent = title;
+
+      if (body) {
+        const escaped = body
+          .replace(/&/g, "&amp;")
+          .replace(/</g, "&lt;")
+          .replace(/>/g, "&gt;")
+          .replace(/\n\n/g, "</p><p>")
+          .replace(/\n/g, "<br>");
+        msgEl.innerHTML = `<p>${escaped}</p>`;
+        msgEl.style.display = "block";
+      } else {
+        msgEl.innerHTML = "";
+        msgEl.style.display = "none";
+      }
+
+      scrim.style.display = "flex";
+      void scrim.offsetWidth;
+      scrim.classList.add("active");
+
+      if (okBtn) {
+        setTimeout(() => okBtn.focus(), 50);
+      }
+    }
+
+    function closeSiteNotification() {
+      const scrim = document.getElementById("site-notification-scrim");
+      if (!scrim) return;
+      scrim.classList.remove("active");
+      setTimeout(() => {
+        scrim.style.display = "none";
+      }, 220);
+    }
+
+    // Override browser native alert to present Oops!Mart branded notification
+    window.alert = function(msg) {
+      showSiteNotification(msg);
+    };
+    window.showSiteNotification = showSiteNotification;
+    window.closeSiteNotification = closeSiteNotification;
+
+    window.addEventListener("keydown", (e) => {
+      const scrim = document.getElementById("site-notification-scrim");
+      if (scrim && scrim.classList.contains("active")) {
+        if (e.key === "Escape" || e.key === "Enter") {
+          e.preventDefault();
+          closeSiteNotification();
+        }
+      }
+    });
   </script>
 
   <!-- Core JavaScript: Physics, Products, Wipes, Cart, and Chaos Engine -->
@@ -3261,7 +3575,7 @@
 
       const quipIdx = Math.min(CHAOS_QUIPS.length - 1, Math.floor(chaosLevel / 5));
       chaosQuipText.textContent = chaosLevel > 20
-        ? "⚠️ CHAOS THRESHOLD BREACHED (Lv. 20+): Fullscreen captive loop lock engaged! Surcharges active."
+        ? "⚠️ CHAOS THRESHOLD BREACHED (Lv. 20+): Maximum entropy threshold engaged!"
         : CHAOS_QUIPS[quipIdx];
 
       if (chaosLevel >= 16 && chaosLevel <= 30) {
@@ -3295,16 +3609,8 @@
     }
 
     function requestBrowserFullscreen() {
-      const docEl = document.documentElement;
-      const rfs = docEl.requestFullscreen || docEl.webkitRequestFullscreen || docEl.mozRequestFullScreen || docEl.msRequestFullscreen;
-      if (rfs) {
-        try {
-          const res = rfs.call(docEl);
-          if (res && res.catch) {
-            res.catch(() => {});
-          }
-        } catch (e) {}
-      }
+      // Disabled: Prevent site from automatically going fullscreen
+      return;
     }
 
     function exitBrowserFullscreen() {
@@ -3421,28 +3727,13 @@
     // 1. Mutation checker hook monitoring chaosLevel variable
     function checkFullscreenCaptiveActivation() {
       if (chaosLevel > 20) {
-        if (!isDocFullscreen()) {
-          requestBrowserFullscreen();
-        }
         spawnWaiverButton();
       }
     }
 
     // 2. Escape Key Interceptor (The Infinite Fullscreen Loop)
     function handleFullscreenChange() {
-      if (!isDocFullscreen() && chaosLevel > 20) {
-        // Re-trigger requestFullscreen() command immediately
-        requestBrowserFullscreen();
-
-        // 3. Captive Truandency Surcharge: add $10.00
-        captiveSurchargeTotal += 10.00;
-        updateInvoiceTotalDOM();
-
-        // Launch flashing warning-yellow overlay banner
-        showCaptiveEscapeBanner();
-
-        AudioEngine.alarm();
-      }
+      // Disabled: Prevent automatic re-triggering of fullscreen loop and escape penalties
     }
 
     ["fullscreenchange", "webkitfullscreenchange", "mozfullscreenchange", "MSFullscreenChange"].forEach(evt => {
@@ -3450,12 +3741,11 @@
       window.addEventListener(evt, handleFullscreenChange);
     });
 
-    // Re-lock fallback on any interaction if chaosLevel > 20 and not fullscreen
     // Global click listener with mutation checker hook
     window.addEventListener("click", (e) => {
       AudioEngine.init();
 
-      if (isLoginModalOpen || e.target.closest("#login-modal") || e.target.closest("#fullscreen-waiver-btn")) {
+      if (isLoginModalOpen || e.target.closest("#login-modal") || e.target.closest("#fullscreen-waiver-btn") || e.target.closest("#site-notification-scrim")) {
         return;
       }
 
@@ -3477,16 +3767,14 @@
     });
 
     window.addEventListener("keydown", (e) => {
-      if (chaosLevel > 20 && !isDocFullscreen()) {
-        requestBrowserFullscreen();
-      }
+      // Automatic fullscreen disabled
     }, { passive: true });
 
     // Global pointer click for physics explosions
     window.addEventListener("pointerdown", (e) => {
       AudioEngine.init();
 
-      if (isLoginModalOpen || e.target.closest("#login-modal") || e.target.closest("#fullscreen-waiver-btn")) {
+      if (isLoginModalOpen || e.target.closest("#login-modal") || e.target.closest("#fullscreen-waiver-btn") || e.target.closest("#site-notification-scrim")) {
         return;
       }
 
@@ -3511,7 +3799,6 @@
           }
           chaosLevel = 21;
           updateChaosDisplay();
-          requestBrowserFullscreen();
           spawnWaiverButton();
         });
       }
